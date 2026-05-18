@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood Glucose Control & Diet Items</title>
     <style>
+        /* --- 1. 全体のベースカラー（清潔感と目に優しいオフホワイト） --- */
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #f7f9fa; /* 優しいライトグレーブルー */
+            color: #2c3e50; /* メインテキスト：信頼感のある濃いネイビーグレー */
             text-align: center;
             padding: 40px 20px;
             margin: 0;
@@ -16,9 +17,10 @@
         h1 {
             font-size: 24px;
             margin-bottom: 35px;
+            color: #1a2a3a; /* タイトルはより深く引き締まった色に */
         }
         
-        /* --- 左右ボタンのスタイル --- */
+        /* --- 2. コンテナとボタンボックスのスタイル --- */
         .container {
             display: flex;
             flex-direction: row;
@@ -30,11 +32,11 @@
         }
         .btn-box {
             flex: 1;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px; /* 少し丸みを強くして親しみやすさを */
             padding: 30px 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(26, 42, 58, 0.04); /* 柔らかい影 */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -44,47 +46,65 @@
             font-size: 18px;
             margin-top: 10px;
             margin-bottom: 10px;
+            color: #1a2a3a;
         }
         .btn-box p {
             font-size: 14px;
-            color: #666;
-            line-height: 1.5;
+            color: #5a6a85; /* 少し明度を落とした読みやすいグレー */
+            line-height: 1.6;
             margin-bottom: 25px;
         }
+        
+        /* 共通ボタン基本スタイル */
         .link-btn {
             display: block;
-            padding: 15px 10px;
-            border-radius: 8px;
+            padding: 16px 10px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.3s;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
         }
-        /* 日本人向け（楽天カラー） */
+        
+        /* --- 3. コンテンツに合わせたアクセントカラー設定 --- */
+        
+        /* 【左：日本人向け】健康・オーガニックをイメージするアボカドグリーン */
         .btn-jp .link-btn {
-            background-color: #bf0000;
-            color: #fff;
+            background-color: #2e7d32; /* 安心感を与える深い緑 */
+            color: #ffffff;
         }
         .btn-jp .link-btn:hover {
-            background-color: #990000;
+            background-color: #1b5e20;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
         }
-        /* 外国人向け（Amazonカラー） */
-        .btn-en .link-btn {
-            background-color: #ff9900;
-            color: #111;
-        }
-        .btn-en .link-btn:hover {
-            background-color: #e68a00;
+        .btn-jp span {
+            background: #e8f5e9 !important; /* 薄い緑のバッジ */
+            color: #2e7d32 !important;
         }
 
-        /* --- 画像ギャラリーと説明文のスタイル --- */
+        /* 【右：外国人向け】ヘルシーでポジティブなアプリコットオレンジ */
+        .btn-en .link-btn {
+            background-color: #e67e22; /* ギラギラしない落ち着いたオレンジ */
+            color: #ffffff; /* 文字を白にして視認性を向上 */
+        }
+        .btn-en .link-btn:hover {
+            background-color: #d35400;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+        }
+        .btn-en span {
+            background: #fdf2e9 !important; /* 薄いオレンジのバッジ */
+            color: #e67e22 !important;
+        }
+
+        /* --- 4. 画像ギャラリーと説明文（テーマカラーと調和） --- */
         .image-section {
             max-width: 800px;
             margin: 0 auto 60px auto;
             text-align: left;
         }
         .image-instruction {
-            background: #f0f4f8;
-            border-left: 4px solid #0066cc;
+            background: #edf2f7; /* ブルーグレーの背景でクリーンに */
+            border-left: 4px solid #4a5568; /* 引き締めるダークグレーのライン */
             padding: 15px;
             border-radius: 4px;
             margin-bottom: 20px;
@@ -99,24 +119,25 @@
         .image-gallery img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
             object-fit: cover;
         }
 
-        /* --- フッター（ポリシーリンク）のスタイル --- */
+        /* --- 5. フッター（免責・ポリシー） --- */
         footer {
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
+            padding-top: 25px;
+            border-top: 1px solid #e2e8f0;
             font-size: 13px;
             text-align: center;
         }
         footer a {
-            color: #666;
+            color: #718096;
             text-decoration: none;
             margin: 0 10px;
         }
         footer a:hover {
+            color: #2d3748;
             text-decoration: underline;
         }
 
@@ -133,12 +154,12 @@
 </head>
 <body>
 
-    <h1>血糖値コントロール・おすすめ愛用品<br><span style="font-size: 16px; color:#888;">Blood Glucose Control & Diet Items</span></h1>
+    <h1>血糖値コントロール・おすすめ愛用品<br><span style="font-size: 16px; color:#718096;">Blood Glucose Control & Diet Items</span></h1>
 
     <div class="container">
         <div class="btn-box btn-jp">
             <div>
-                <span style="font-size: 11px; color: #999; background: #eee; padding: 2px 6px; border-radius: 3px;">PR / 広告</span>
+                <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: bold;">PR / 広告</span>
                 <h2>For Japanese</h2>
                 <p>実際に使って血糖値の上昇が緩やかだった、おすすめの低糖質食品やサプリ、お茶を楽天ROOMでまとめています！</p>
             </div>
@@ -147,7 +168,7 @@
 
         <div class="btn-box btn-en">
             <div>
-                <span style="font-size: 11px; color: #999; background: #eee; padding: 2px 6px; border-radius: 3px;">AD / Affiliate Link</span>
+                <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: bold;">AD / Affiliate Link</span>
                 <h2>For Global Users</h2>
                 <p>Recommended items for blood glucose control and healthy diet available on Amazon. (Low-carb snacks, supplements, teas, etc.)</p>
             </div>
@@ -159,7 +180,7 @@
         <div class="image-instruction">
             <strong>【血糖値グラフの検証記録 / Blood Glucose Tracking Records】</strong><br>
             日次および週次の血糖値コントロールデータと、改善のサマリーです。数値の変動や効果には個人差があります。<br>
-            <span style="color: #666; font-size: 13px;">These are my daily/weekly blood glucose logs and summary reports. Individual charts and results may vary.</span>
+            <span style="color: #718096; font-size: 13px;">These are my daily/weekly blood glucose logs and summary reports. Individual charts and results may vary.</span>
         </div>
 
         <div class="image-gallery">
@@ -173,11 +194,11 @@
     <footer>
         <a href="privacy-policy.html">プライバシーポリシー (Privacy Policy)</a> | 
         <a href="disclaimer.html">免責事項 (Disclaimer)</a>
-        <p style="color: #999; font-size: 11px; margin-top: 15px;">&copy; My Pin Site All Rights Reserved.</p>
+        <p style="color: #a0aec0; font-size: 11px; margin-top: 15px;">&copy; My Pin Site All Rights Reserved.</p>
     </footer>
 
     <script>
-        // キャッシュを強制回避するために、URLの末尾に毎回違う数字（タイムスタンプ）をくっつけます
+        // キャッシュを回避して常に最新のテキストを読み込む（ランダム処理）
         const cacheBuster = '?v=' + new Date().getTime();
         
         fetch('amazon_link_list.txt' + cacheBuster)
@@ -204,6 +225,6 @@
                 document.getElementById('amazon-link').textContent = 'Error Loading Items';
             });
     </script>
-    
+
 </body>
 </html>
