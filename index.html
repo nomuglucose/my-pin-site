@@ -92,7 +92,7 @@
             box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
         }
         .btn-en span {
-            background: #fdf2e9 !important; /* 薄いオレンジのバッジ */
+            background: #fdf2e9 !important; /* 薄いオレンジ of バッジ */
             color: #e67e22 !important;
         }
 
@@ -122,9 +122,66 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.06);
             object-fit: cover;
+            cursor: pointer; /* マウスを乗せたときに指マークにしてクリック可能と伝える */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        /* 画像をホバーしたときに少し浮かせる演出 */
+        .image-gallery img:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
         }
 
-        /* --- 5. フッター（免責・ポリシー） --- */
+        /* --- 5. 追加：拡大表示（モーダルウィンドウ）のスタイル --- */
+        .modal {
+            display: none; /* 初期状態は非表示 */
+            position: fixed;
+            z-index: 1000; /* 一番手前に表示 */
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(26, 42, 58, 0.9); /* 背景を暗いネイビーの透過に */
+            cursor: zoom-out; /* クリックで閉じられることを伝えるマーク */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        /* モーダル表示時のふわっとしたアニメーション用クラス */
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh; /* 画面からはみ出さないサイズ感に調整 */
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+        /* 閉じるボタン（×） */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: #e67e22; /* ホバーでアクセントカラーに */
+        }
+
+        /* --- 6. フッター（免責・ポリシー） --- */
         footer {
             padding-top: 25px;
             border-top: 1px solid #e2e8f0;
@@ -148,6 +205,10 @@
             }
             .image-gallery {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .modal-content {
+                max-width: 95%;
+                padding-top: 40px;
             }
         }
     </style>
@@ -180,7 +241,7 @@
         <div class="image-instruction">
             <strong>【血糖値グラフの検証記録 / Blood Glucose Tracking Records】</strong><br>
             日次および週次の血糖値コントロールデータと、改善のサマリーです。数値の変動や効果には個人差があります。<br>
-            <span style="color: #718096; font-size: 13px;">These are my daily/weekly blood glucose logs and summary reports. Individual charts and results may vary.</span>
+            <span style="color: #718096; font-size: 13px;">These are my daily/weekly blood glucose logs and summary reports. Individual charts and results may vary. (Click images to enlarge)</span>
         </div>
 
         <div class="image-gallery">
@@ -191,6 +252,11 @@
         </div>
     </div>
 
+    <div id="imageModal" class="modal">
+        <span class="close-btn" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalTargetImg" src="">
+    </div>
+
     <footer>
         <a href="privacy-policy.html">プライバシーポリシー (Privacy Policy)</a> | 
         <a href="disclaimer.html">免責事項 (Disclaimer)</a>
@@ -198,7 +264,7 @@
     </footer>
 
     <script>
-        // キャッシュを回避して常に最新のテキストを読み込む（ランダム処理）
+        // --- A. キャッシュを回避して常に最新のテキストを読み込む（ランダム処理） ---
         const cacheBuster = '?v=' + new Date().getTime();
         
         fetch('amazon_link_list.txt' + cacheBuster)
@@ -224,6 +290,41 @@
                 console.error(error);
                 document.getElementById('amazon-link').textContent = 'Error Loading Items';
             });
+
+        // --- B. 追加：画像クリックで拡大する処理 ---
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalTargetImg');
+        const closeBtn = document.getElementById('modalClose');
+
+        // ギャラリー内のすべての画像にクリックイベントを登録
+        document.querySelectorAll('.image-gallery img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'block';
+                // 少し遅らせてクラスを付与することで、ふわっとフェードインさせる
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+
+        // モーダルを閉じる関数
+        function closeModal() {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // アニメーションが終わるのを待ってから非表示にする
+        }
+
+        // ×ボタン、または背景クリックでモーダルを閉じる
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            // 画像そのものをクリックした時は閉じないようにする
+            if (e.target !== modalImg) {
+                closeModal();
+            }
+        });
     </script>
 
 </body>
