@@ -3,209 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="p:domain_verify" content="f2d83c8458d08761156987da364fc249"/>
-    <title>My Sugar Control ポータルサイト</title> 
+    <title>Blood Glucose Control & Diet Items</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', メイリオ, sans-serif;
-            line-height: 1.6;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9f9f9;
             color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f6f9;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
             text-align: center;
-            padding: 50px 20px;
-            background: #ffffff;
-            border-bottom: 1px solid #eef2f5;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 24px;
             margin-bottom: 30px;
         }
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-            color: #1a1a1a;
-            letter-spacing: 1px;
-        }
-        header p {
-            color: #666;
-            margin: 12px 0 0 0;
-            font-size: 15px;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            border-left: 5px solid #00acc1;
-            padding-left: 12px;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-        .section-desc {
-            font-size: 14px;
-            color: #666;
-            margin-top: -15px;
-            margin-bottom: 25px;
-        }
-
-        /* --- リンクカードのスタイル --- */
-        .card-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
             gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .card {
+        .btn-box {
+            flex: 1;
             background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            text-decoration: none;
-            color: #333;
-            display: block;
-            border: 1px solid #eef2f5;
-            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            border-color: #00acc1;
+        .btn-box h2 {
+            font-size: 18px;
+            margin-top: 0;
         }
-        .card h3 {
-            margin: 0 0 12px 0;
-            font-size: 17px;
-            color: #00acc1;
-        }
-        .card p {
-            margin: 0;
+        .btn-box p {
             font-size: 14px;
             color: #666;
             line-height: 1.5;
-        }
-
-        /* --- グラフ表示エリアのスタイル --- */
-        .graph-box-dark {
-            background: #111111;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .graph-box-light {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            text-align: center;
-            margin-bottom: 20px;
-            border: 1px solid #eef2f5;
-        }
-        .graph-box-dark img, .graph-box-light img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 4px;
-        }
-        
-        .graph-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
             margin-bottom: 25px;
         }
-        @media (max-width: 768px) {
-            .graph-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* フッター */
-        footer {
-            margin-top: 80px;
-            padding: 30px 0;
-            text-align: center;
-            border-top: 1px solid #eef2f5;
-            font-size: 14px;
-        }
-        footer a {
-            color: #00acc1;
+        .link-btn {
+            display: block;
+            padding: 15px 10px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
+            transition: background 0.3s;
         }
-        footer a:hover {
-            text-decoration: underline;
+        /* 日本人向け（楽天カラー） */
+        .btn-jp .link-btn {
+            background-color: #bf0000;
+            color: #fff;
+        }
+        .btn-jp .link-btn:hover {
+            background-color: #990000;
+        }
+        /* 外国人向け（Amazonカラー） */
+        .btn-en .link-btn {
+            background-color: #ff9900;
+            color: #111;
+        }
+        .btn-en .link-btn:hover {
+            background-color: #e68a00;
+        }
+        /* レスポンシブ対応（スマホでは縦並び） */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>My Sugar Control ポータル</h1>
-        <p>おすすめの情報やブログ、お気に入りアイテムをまとめています。</p>
-    </header>
+    <h1>血糖値コントロール・おすすめ愛用品<br><span style="font-size: 16px; color:#888;">Blood Glucose Control & Diet Items</span></h1>
 
     <div class="container">
-
-        <h2 class="section-title">公式ブログ</h2>
-        <div class="card-list">
-            <a href="#" target="_blank" class="card">
-                <h3>公式アメーバブログ（Ameba）</h3>
-                <p>日々の血糖値の振り返り、食事や運動の検証記録など、リアルな日常はこちらで発信しています！</p>
-            </a>
-            <a href="#" target="_blank" class="card">
-                <h3>公式note</h3>
-                <p>データに基づいた効率的な管理法や、知識のまとめコラムを不定期に公開しています。</p>
-            </a>
-        </div>
-
-
-        <h2 class="section-title">おすすめアイテム＆サービス</h2>
-        <div class="card-list">
-            <a href="#" target="_blank" class="card">
-                <h3>おすすめの健康管理アイテム</h3>
-                <p>実際に計測・管理に使用して本当によかった、日々のライフハックに欠かせない便利グッズです。</p>
-            </a>
-            <a href="#" target="_blank" class="card">
-                <h3>注目サービス・サプリ</h3>
-                <p>手軽に生活に取り入れられる、糖質ケアや健康維持にイチオシのサービスをご紹介します。</p>
-            </a>
-        </div>
-
-
-        <h2 class="section-title">血糖値データ記録（24時間）</h2>
-        <div class="graph-box-dark">
-            <img src="./20260518_daily_JP.png" alt="24時間血糖値グラフデータ">
-        </div>
-
-        <h2 class="section-title">週間血糖値サマリー（日別データ）</h2>
-        <div class="graph-box-light">
-            <img src="./20260518_SUMMARY_weekly.png" alt="週間血糖値サマリー">
-        </div>
-
-        <h2 class="section-title">週間トレンド ＆ AGP詳細分析レポート</h2>
-        <p class="section-desc">1週間の全体的な推移（左）と、時間帯ごとの変動パターン（右）の解析データです。</p>
-        <div class="graph-grid">
-            <div class="graph-box-dark" style="margin-bottom:0;">
-                <img src="./20260518_weekly_JP.png" alt="週間血糖値トレンド">
+        <div class="btn-box btn-jp">
+            <div>
+                <h2>For Japanese</h2>
+                <p>実際に使って血糖値の上昇が緩やかだった、おすすめの低糖質食品やサプリ、お茶を楽天ROOMでまとめています！</p>
             </div>
-            <div class="graph-box-light" style="margin-bottom:0; display:flex; align-items:center; justify-content:center;">
-                <img src="./20260518_AGP_weekly.png" alt="AGP分析データ">
-            </div>
+            <a href="https://room.rakuten.co.jp/room_6816223819/collections" target="_blank" rel="noopener" class="link-btn">楽天ROOMコレクションを見る</a>
         </div>
 
-
-        <footer>
-            <p><a href="#" target="_blank">プライバシーポリシー（Privacy Policy）</a></p>
-            <p>&copy; MySugarControl Portal</p>
-        </footer>
-
+        <div class="btn-box btn-en">
+            <div>
+                <h2>For Global Users</h2>
+                <p>Recommended items for blood glucose control and healthy diet available on Amazon. (Low-carb snacks, supplements, teas, etc.)</p>
+            </div>
+            <a href="#" id="amazon-link" target="_blank" rel="noopener" class="link-btn">Check Diet Items on Amazon</a>
+        </div>
     </div>
+
+    <script>
+        // 提供いただいたamazon_link_list.txtの中身を配列として定義
+        const amazonLinks = [
+            "https://amzn.to/4nwLD5D",
+            "https://amzn.to/4dpv8Uh",
+            "https://amzn.to/42JmLy2",
+            "https://amzn.to/4tKueYP",
+            "https://amzn.to/4wB80Lh",
+            "https://amzn.to/3PbxZIC",
+            "https://amzn.to/4frnsn9"
+        ];
+
+        // 配列からランダムに1つのURLを選ぶ
+        const randomIndex = Math.floor(Math.random() * amazonLinks.length);
+        const selectedLink = amazonLinks[randomIndex];
+
+        // 右側のボタンのリンク先（href）に選ばれたURLを設定
+        document.getElementById('amazon-link').href = selectedLink;
+    </script>
 
 </body>
 </html>
