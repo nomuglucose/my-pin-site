@@ -177,8 +177,10 @@
     </footer>
 
     <script>
-        // amazon_link_list.txt からランダムにリンクを取得する処理
-        fetch('amazon_link_list.txt')
+        // キャッシュを強制回避するために、URLの末尾に毎回違う数字（タイムスタンプ）をくっつけます
+        const cacheBuster = '?v=' + new Date().getTime();
+        
+        fetch('amazon_link_list.txt' + cacheBuster)
             .then(response => {
                 if (!response.ok) throw new Error('Network error');
                 return response.text();
@@ -202,6 +204,6 @@
                 document.getElementById('amazon-link').textContent = 'Error Loading Items';
             });
     </script>
-
+    
 </body>
 </html>
