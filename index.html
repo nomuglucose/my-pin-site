@@ -71,7 +71,7 @@
         .btn-en .link-btn:hover {
             background-color: #e68a00;
         }
-        /* レスポンシブ対応（スマホでは縦並び） */
+        /* スマホ対応 */
         @media (max-width: 600px) {
             .container {
                 flex-direction: column;
@@ -97,28 +97,42 @@
                 <h2>For Global Users</h2>
                 <p>Recommended items for blood glucose control and healthy diet available on Amazon. (Low-carb snacks, supplements, teas, etc.)</p>
             </div>
-            <a href="#" id="amazon-link" target="_blank" rel="noopener" class="link-btn">Check Diet Items on Amazon</a>
+            <a href="#" id="amazon-link" target="_blank" rel="noopener" class="link-btn">Loading...</a>
         </div>
     </div>
 
     <script>
-        // 提供いただいたamazon_link_list.txtの中身を配列として定義
-        const amazonLinks = [
-            "https://amzn.to/4nwLD5D",
-            "https://amzn.to/4dpv8Uh",
-            "https://amzn.to/42JmLy2",
-            "https://amzn.to/4tKueYP",
-            "https://amzn.to/4wB80Lh",
-            "https://amzn.to/3PbxZIC",
-            "https://amzn.to/4frnsn9"
-        ];
+        // 同じ階層にある amazon_link_list.txt を読み込む
+        fetch('amazon_link_list.txt')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // テキストを改行ごとに区切って配列にする（空行やスペースを排除）
+                const links = data.split('\n')
+                                  .map(line => line.trim())
+                                  .filter(line => line.startsWith('https://'));
 
-        // 配列からランダムに1つのURLを選ぶ
-        const randomIndex = Math.floor(Math.random() * amazonLinks.length);
-        const selectedLink = amazonLinks[randomIndex];
+                if (links.length > 0) {
+                    // ランダムに1つ選ぶ
+                    const randomIndex = Math.floor(Math.random() * links.length);
+                    const selectedLink = links[randomIndex];
 
-        // 右側のボタンのリンク先（href）に選ばれたURLを設定
-        document.getElementById('amazon-link').href = selectedLink;
+                    // ボタンの文字とリンク先を書き換える
+                    const amazonBtn = document.getElementById('amazon-link');
+                    amazonBtn.href = selectedLink;
+                    amazonBtn.textContent = 'Check Diet Items on Amazon';
+                } else {
+                    document.getElementById('amazon-link').textContent = 'No Items Available';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching the link list:', error);
+                document.getElementById('amazon-link').textContent = 'Error Loading Items';
+            });
     </script>
 
 </body>
