@@ -15,8 +15,10 @@
         }
         h1 {
             font-size: 24px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
+        
+        /* --- 左右ボタンのスタイル --- */
         .container {
             display: flex;
             flex-direction: row;
@@ -24,7 +26,7 @@
             align-items: stretch;
             gap: 20px;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 45px auto; /* 下の画像エリアとの間隔 */
         }
         .btn-box {
             flex: 1;
@@ -71,10 +73,45 @@
         .btn-en .link-btn:hover {
             background-color: #e68a00;
         }
+
+        /* --- 画像ギャラリーのスタイル --- */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto 60px auto; /* 下のフッターとの間隔 */
+        }
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        /* --- フッター（ポリシーリンク）のスタイル --- */
+        footer {
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 13px;
+        }
+        footer a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         /* スマホ対応 */
         @media (max-width: 600px) {
             .container {
                 flex-direction: column;
+            }
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr); /* スマホでは2列×2行 */
             }
         }
     </style>
@@ -101,36 +138,42 @@
         </div>
     </div>
 
+    <div class="image-gallery">
+        <img src="image1.jpg" alt="Blood Glucose Graph 1">
+        <img src="image2.jpg" alt="Blood Glucose Graph 2">
+        <img src="image3.jpg" alt="Blood Glucose Graph 3">
+        <img src="image4.jpg" alt="Blood Glucose Graph 4">
+    </div>
+
+    <footer>
+        <a href="privacy-policy.html">プライバシーポリシー (Privacy Policy)</a> | 
+        <a href="disclaimer.html">免責事項 (Disclaimer)</a>
+        <p style="color: #999; font-size: 11px; margin-top: 15px;">&copy; My Pin Site All Rights Reserved.</p>
+    </footer>
+
     <script>
-        // 同じ階層にある amazon_link_list.txt を読み込む
+        // amazon_link_list.txt を読み込んでランダムにセットする処理
         fetch('amazon_link_list.txt')
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                if (!response.ok) throw new Error('Network error');
                 return response.text();
             })
             .then(data => {
-                // テキストを改行ごとに区切って配列にする（空行やスペースを排除）
                 const links = data.split('\n')
                                   .map(line => line.trim())
                                   .filter(line => line.startsWith('https://'));
 
                 if (links.length > 0) {
-                    // ランダムに1つ選ぶ
                     const randomIndex = Math.floor(Math.random() * links.length);
-                    const selectedLink = links[randomIndex];
-
-                    // ボタンの文字とリンク先を書き換える
                     const amazonBtn = document.getElementById('amazon-link');
-                    amazonBtn.href = selectedLink;
+                    amazonBtn.href = links[randomIndex];
                     amazonBtn.textContent = 'Check Diet Items on Amazon';
                 } else {
                     document.getElementById('amazon-link').textContent = 'No Items Available';
                 }
             })
             .catch(error => {
-                console.error('Error fetching the link list:', error);
+                console.error(error);
                 document.getElementById('amazon-link').textContent = 'Error Loading Items';
             });
     </script>
