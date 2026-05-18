@@ -26,7 +26,7 @@
             align-items: stretch;
             gap: 20px;
             max-width: 800px;
-            margin: 0 auto 45px auto; /* 下の画像エリアとの間隔 */
+            margin: 0 auto 45px auto;
         }
         .btn-box {
             flex: 1;
@@ -74,13 +74,25 @@
             background-color: #e68a00;
         }
 
-        /* --- 画像ギャラリーのスタイル --- */
+        /* --- 画像ギャラリーと説明文のスタイル --- */
+        .image-section {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            text-align: left;
+        }
+        .image-instruction {
+            background: #f0f4f8;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
-            max-width: 800px;
-            margin: 0 auto 60px auto; /* 下のフッターとの間隔 */
         }
         .image-gallery img {
             width: 100%;
@@ -95,6 +107,7 @@
             padding-top: 20px;
             border-top: 1px solid #e0e0e0;
             font-size: 13px;
+            text-align: center;
         }
         footer a {
             color: #666;
@@ -111,7 +124,7 @@
                 flex-direction: column;
             }
             .image-gallery {
-                grid-template-columns: repeat(2, 1fr); /* スマホでは2列×2行 */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -138,11 +151,19 @@
         </div>
     </div>
 
-    <div class="image-gallery">
-        <img src="image1.jpg" alt="Blood Glucose Graph 1">
-        <img src="image2.jpg" alt="Blood Glucose Graph 2">
-        <img src="image3.jpg" alt="Blood Glucose Graph 3">
-        <img src="image4.jpg" alt="Blood Glucose Graph 4">
+    <div class="image-section">
+        <div class="image-instruction">
+            <strong>【血糖値グラフの検証記録 / Blood Glucose Tracking Records】</strong><br>
+            日次および週次の血糖値コントロールデータと、改善のサマリーです。数値の変動や効果には個人差があります。<br>
+            <span style="color: #666; font-size: 13px;">These are my daily/weekly blood glucose logs and summary reports. Individual charts and results may vary.</span>
+        </div>
+
+        <div class="image-gallery">
+            <img src="20260518_daily_JP.png" alt="Daily Blood Glucose Chart (Japan)">
+            <img src="20260518_weekly_JP.png" alt="Weekly Blood Glucose Chart (Japan)">
+            <img src="20260518_AGP_weekly.png" alt="Weekly AGP Report">
+            <img src="20260518_SUMMARY_weekly.png" alt="Weekly Summary Report">
+        </div>
     </div>
 
     <footer>
@@ -152,7 +173,7 @@
     </footer>
 
     <script>
-        // amazon_link_list.txt を読み込んでランダムにセットする処理
+        // amazon_link_list.txt からランダムにリンクを取得する処理
         fetch('amazon_link_list.txt')
             .then(response => {
                 if (!response.ok) throw new Error('Network error');
