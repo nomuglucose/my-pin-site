@@ -38,7 +38,6 @@
             font-size: 15px;
         }
         
-        /* セクション見出しの強化 */
         .section-title {
             font-size: 20px;
             border-left: 5px solid #00acc1;
@@ -46,68 +45,12 @@
             margin-top: 50px;
             margin-bottom: 20px;
             color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
         .section-desc {
             font-size: 14px;
             color: #666;
             margin-top: -15px;
             margin-bottom: 25px;
-        }
-
-        /* --- ダッシュボード（画像表示）エリアのスタイル --- */
-        /* 黒背景のグラフ用（24h・週間推移） */
-        .graph-box-dark {
-            background: #111111;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        /* 白背景のグラフ用（サマリー・AGP） */
-        .graph-box-light {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            text-align: center;
-            margin-bottom: 20px;
-            border: 1px solid #eef2f5;
-        }
-        .graph-box-dark img, .graph-box-light img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 4px;
-        }
-        
-        /* 2カラムのグリッドレイアウト */
-        .graph-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-        @media (max-width: 768px) {
-            .graph-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ブログ誘導メッセージ */
-        .blog-notice {
-            background: #e0f7fa;
-            border: 1px solid #b2ebf2;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 14px;
-            color: #006064;
-            margin-top: 15px;
-            text-align: center;
         }
 
         /* --- リンクカードのスタイル --- */
@@ -144,7 +87,45 @@
             line-height: 1.5;
         }
 
-        /* --- フッター・プライバシーポリシー --- */
+        /* --- グラフ表示エリアのスタイル --- */
+        .graph-box-dark {
+            background: #111111;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .graph-box-light {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid #eef2f5;
+        }
+        .graph-box-dark img, .graph-box-light img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        
+        .graph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        @media (max-width: 768px) {
+            .graph-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* フッター */
         footer {
             margin-top: 80px;
             padding: 30px 0;
@@ -160,58 +141,16 @@
         footer a:hover {
             text-decoration: underline;
         }
-        .privacy-section {
-            max-width: 900px;
-            margin: 60px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            border: 1px solid #eef2f5;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>My Sugar Control ポータル</h1>
-        <p>血糖値データのリアルタイム記録と、おすすめの健康管理ハックをまとめています。</p>
+        <p>おすすめの情報やブログ、お気に入りアイテムをまとめています。</p>
     </header>
 
     <div class="container">
-
-        <h2 class="section-title">本日の血糖値データ（24時間）</h2>
-        <p class="section-desc">直近のリアルタイムな血糖変動データを公開しています。</p>
-        
-        <div class="graph-box-dark">
-            <img src="20260518_daily_JP.png" alt="24時間血糖値グラフデータ">
-        </div>
-
-
-        <h2 class="section-title">週間血糖値サマリー（日別データ）</h2>
-        <p class="section-desc">曜日ごとの変動傾向を視覚的にまとめたサマリーです。</p>
-        
-        <div class="graph-box-light">
-            <img src="20260518_SUMMARY_weekly.png" alt="週間血糖値サマリー">
-        </div>
-
-
-        <h2 class="section-title">週間トレンド ＆ AGP詳細分析レポート</h2>
-        <p class="section-desc">1週間の全体的な推移（左）と、時間帯ごとの変動パターン（右）の解析データです。</p>
-        
-        <div class="graph-grid">
-            <div class="graph-box-dark" style="margin-bottom:0;">
-                <img src="20260518_weekly_JP.png" alt="週間血糖値トレンド">
-            </div>
-            <div class="graph-box-light" style="margin-bottom:0; display:flex; align-items:center; justify-content:center;">
-                <img src="20260518_AGP_weekly.png" alt="AGP分析データ">
-            </div>
-        </div>
-
-        <div class="blog-notice">
-            💡 <strong>各データの詳しい振り返りや、コントロールのコツは公式ブログで毎日更新中！</strong> 下記のリンクからチェックしてください。
-        </div>
-
 
         <h2 class="section-title">公式ブログ</h2>
         <div class="card-list">
@@ -239,56 +178,32 @@
         </div>
 
 
+        <h2 class="section-title">血糖値データ記録（24時間）</h2>
+        <div class="graph-box-dark">
+            <img src="./20260518_daily_JP.png" alt="24時間血糖値グラフデータ">
+        </div>
+
+        <h2 class="section-title">週間血糖値サマリー（日別データ）</h2>
+        <div class="graph-box-light">
+            <img src="./20260518_SUMMARY_weekly.png" alt="週間血糖値サマリー">
+        </div>
+
+        <h2 class="section-title">週間トレンド ＆ AGP詳細分析レポート</h2>
+        <p class="section-desc">1週間の全体的な推移（左）と、時間帯ごとの変動パターン（右）の解析データです。</p>
+        <div class="graph-grid">
+            <div class="graph-box-dark" style="margin-bottom:0;">
+                <img src="./20260518_weekly_JP.png" alt="週間血糖値トレンド">
+            </div>
+            <div class="graph-box-light" style="margin-bottom:0; display:flex; align-items:center; justify-content:center;">
+                <img src="./20260518_AGP_weekly.png" alt="AGP分析データ">
+            </div>
+        </div>
+
+
         <footer>
-            <p><a href="#privacy-policy">プライバシーポリシー（Privacy Policy）</a></p>
+            <p><a href="#" target="_blank">プライバシーポリシー（Privacy Policy）</a></p>
             <p>&copy; MySugarControl Portal</p>
         </footer>
-
-        <hr style="border: 0; border-top: 1px solid #eef2f5; margin: 40px 0;">
-
-
-        <section id="privacy-policy" class="privacy-section">
-            <h2>プライバシーポリシー</h2>
-            <p>本プライバシーポリシーは、MySugarControl（以下「本アプリ」）が提供するサービスにおける、ユーザーの個人情報の取り扱いについて説明するものです。</p>
-
-            <h3>1. 収集する情報</h3>
-            <p>本アプリは以下の情報を収集する場合があります。</p>
-            <ul>
-                <li>ユーザーが入力または連携した血糖値データなどのヘルスデータ</li>
-                <li>Pinterest API を利用する際に取得される公開情報（ピン作成・投稿に必要な範囲のみ）</li>
-            </ul>
-            <p>本アプリは、ユーザーの許可なく個人を特定できる情報を収集しません。</p>
-
-            <h3>2. 情報の利用目的</h3>
-            <ul>
-                <li>血糖値データの管理および可視化</li>
-                <li>Pinterest との連携機能（ピン作成・投稿・レポート表示など）の提供</li>
-                <li>アプリの改善およびユーザー体験の向上</li>
-            </ul>
-
-            <h3>3. 情報の第三者提供</h3>
-            <p>本アプリは、以下の場合を除き、ユーザー情報を第三者に提供することはありません。</p>
-            <ul>
-                <li>ユーザー本人の同意がある場合</li>
-                <li>法令に基づき開示が必要な場合</li>
-            </ul>
-
-            <h3>4. 外部サービスの利用</h3>
-            <p>本アプリは以下の外部サービスを利用します。</p>
-            <ul>
-                <li><strong>Pinterest API</strong>（Pinterest の利用規約およびプライバシーポリシーに従ってデータが処理されます）</li>
-            </ul>
-
-            <h3>5. データの管理</h3>
-            <p>ユーザーのデータは適切に管理され、不正アクセス・改ざん・漏洩を防ぐための対策を講じます。</p>
-
-            <h3>6. プライバシーポリシーの変更</h3>
-            <p>必要に応じて、本ポリシーの内容を変更する場合があります。変更後のポリシーは、本ページに掲載された時点で効力を持ちます。</p>
-
-            <h3>7. お問い合わせ</h3>
-            <p>本アプリに関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
-            <p><strong>nomuglucose@gmail.com</strong></p>
-        </section>
 
     </div>
 
