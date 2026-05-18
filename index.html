@@ -1,58 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Pinterestの認証タグ（削除しないでください） -->
     <meta name="p:domain_verify" content="f2d83c8458d08761156987da364fc249"/>
-    <title>My Pinterest App Project</title>    
+    <title>My Sugar Control ポータルサイト</title> 
+    <style>
+        /* ポータルサイト風のシンプルなデザイン */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #ffffff;
+            border-bottom: 1px solid #eef2f5;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #1a1a1a;
+        }
+        header p {
+            color: #666;
+            margin: 10px 0 0 0;
+            font-size: 15px;
+        }
+        .section-title {
+            font-size: 18px;
+            border-left: 4px solid #00acc1;
+            padding-left: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        /* リンクカードのレイアウト（スマホでも自動で最適化されます） */
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: #333;
+            display: block;
+            border: 1px solid #eef2f5;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #00acc1;
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #00acc1;
+        }
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        /* フッター・ポリシーエリア */
+        footer {
+            margin-top: 60px;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #eef2f5;
+            font-size: 14px;
+        }
+        footer a {
+            color: #00acc1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .privacy-section {
+            max-width: 800px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eef2f5;
+        }
+    </style>
 </head>
 <body>
-    <h1>Pinterest API Project</h1>
-    <p>This is a verification page for Pinterest API access. test</p>
 
-    <!-- 修正ポイント：/privacy → #privacy-policy -->
-    <p><a href="#privacy-policy">Privacy Policy</a></p>
+    <header>
+        <!-- サイトのメインタイトル（自由に変更してください） -->
+        <h1>My Sugar Control ポータル</h1>
+        <p>おすすめの情報やブログ、お気に入りアイテムをまとめています。</p>
+    </header>
 
-    <section id="privacy-policy" style="max-width:800px;margin:40px auto;font-family:Arial, sans-serif;line-height:1.7;">
-        <h2>プライバシーポリシー</h2>
+    <div class="container">
 
-        <p>本プライバシーポリシーは、MySugarControl（以下「本アプリ」）が提供するサービスにおける、ユーザーの個人情報の取り扱いについて説明するものです。</p>
+        <!-- ▼ ブログリンク用セクション -->
+        <h2 class="section-title">公式ブログ</h2>
+        <div class="card-list">
+            <!-- アメブロのURLが決まったら href="#" の # を置き換えてください -->
+            <a href="#" target="_blank" class="card">
+                <h3>公式アメーバブログ（Ameba）</h3>
+                <p>日々の記録や、より詳しい情報はこちらのブログで発信しています！</p>
+            </a>
+            
+            <!-- noteのURLが決まったら href="#" の # を置き換えてください -->
+            <a href="#" target="_blank" class="card">
+                <h3>公式note</h3>
+                <p>役立つコラムや、知識のまとめ記事を不定期に更新中。</p>
+            </a>
+        </div>
 
-        <h3>1. 収集する情報</h3>
-        <p>本アプリは以下の情報を収集する場合があります。</p>
-        <ul>
-            <li>ユーザーが入力または連携した血糖値データなどのヘルスデータ</li>
-            <li>Pinterest API を利用する際に取得される公開情報（ピン作成・投稿に必要な範囲のみ）</li>
-        </ul>
-        <p>本アプリは、ユーザーの許可なく個人を特定できる情報を収集しません。</p>
 
-        <h3>2. 情報の利用目的</h3>
-        <ul>
-            <li>血糖値データの管理および可視化</li>
-            <li>Pinterest との連携機能（ピン作成・投稿・レポート表示など）の提供</li>
-            <li>アプリの改善およびユーザー体験の向上</li>
-        </ul>
+        <!-- ▼ アフィリエイト・おすすめリンク用セクション -->
+        <h2 class="section-title">おすすめアイテム＆サービス</h2>
+        <div class="card-list">
+            
+            <!-- サンプル案件1（アフィリエイトのリンクURLを href に貼ります） -->
+            <a href="#" target="_blank" class="card">
+                <h3>おすすめの健康管理アイテム</h3>
+                <p>実際に使ってよかった、日々の管理に役立つおすすめグッズです。</p>
+            </a>
 
-        <h3>3. 情報の第三者提供</h3>
-        <p>本アプリは、以下の場合を除き、ユーザー情報を第三者に提供することはありません。</p>
-        <ul>
-            <li>ユーザー本人の同意がある場合</li>
-            <li>法令に基づき開示が必要な場合</li>
-        </ul>
+            <!-- サンプル案件2 -->
+            <a href="#" target="_blank" class="card">
+                <h3>注目サービス・サプリ</h3>
+                <p>手軽に生活に取り入れられる、イチオシのサービスをご紹介します。</p>
+            </a>
 
-        <h3>4. 外部サービスの利用</h3>
-        <p>本アプリは以下の外部サービスを利用します。</p>
-        <ul>
-            <li><strong>Pinterest API</strong>（Pinterest の利用規約およびプライバシーポリシーに従ってデータが処理されます）</li>
-        </ul>
+            <!-- ※ リンクを増やしたい場合は、ここから上の「<a ...>〜</a>」をコピーして増やせます -->
 
-        <h3>5. データの管理</h3>
-        <p>ユーザーのデータは適切に管理され、不正アクセス・改ざん・漏洩を防ぐための対策を講じます。</p>
+        </div>
 
-        <h3>6. プライバシーポリシーの変更</h3>
-        <p>必要に応じて、本ポリシーの内容を変更する場合があります。変更後のポリシーは、本ページに掲載された時点で効力を持ちます。</p>
 
-        <h3>7. お問い合わせ</h3>
-        <p>本アプリに関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
-        <p><strong>nomuglucose@gmail.com</strong></p>
-    </section>
+        <!-- ▼ フッター（ポリシーリンク） -->
+        <footer>
+            <p><a href="#privacy-policy">プライバシーポリシー（Privacy Policy）</a></p>
+            <p>&copy; MySugarControl Portal</p>
+        </footer>
+
+        <hr style="border: 0; border-top: 1px solid #eef2f5; margin: 40px 0;">
+
+
+        <!-- ▼ プライバシーポリシー（元の内容を維持） -->
+        <section id="privacy-policy" class="privacy-section">
+            <h2>プライバシーポリシー</h2>
+
+            <p>本プライバシーポリシーは、MySugarControl（以下「本アプリ」）が提供するサービスにおける、ユーザーの個人情報の取り扱いについて説明するものです。</p>
+
+            <h3>1. 収集する情報</h3>
+            <p>本アプリは以下の情報を収集する場合があります。</p>
+            <ul>
+                <li>ユーザーが入力または連携した血糖値データなどのヘルスデータ</li>
+                <li>Pinterest API を利用する際に取得される公開情報（ピン作成・投稿に必要な範囲のみ）</li>
+            </ul>
+            <p>本アプリは、ユーザーの許可なく個人を特定できる情報を収集しません。</p>
+
+            <h3>2. 情報の利用目的</h3>
+            <ul>
+                <li>血糖値データの管理および可視化</li>
+                <li>Pinterest との連携機能（ピン作成・投稿・レポート表示など）の提供</li>
+                <li>アプリの改善およびユーザー体験の向上</li>
+            </ul>
+
+            <h3>3. 情報の第三者提供</h3>
+            <p>本アプリは、以下の場合を除き、ユーザー情報を第三者に提供することはありません。</p>
+            <ul>
+                <li>ユーザー本人の同意がある場合</li>
+                <li>法令に基づき開示が必要な場合</li>
+            </ul>
+
+            <h3>4. 外部サービスの利用</h3>
+            <p>本アプリは以下の外部サービスを利用します。</p>
+            <ul>
+                <li><strong>Pinterest API</strong>（Pinterest の利用規約およびプライバシーポリシーに従ってデータが処理されます）</li>
+            </ul>
+
+            <h3>5. データの管理</h3>
+            <p>ユーザーのデータは適切に管理され、不正アクセス・改ざん・漏洩を防ぐための対策を講じます。</p>
+
+            <h3>6. プライバシーポリシーの変更</h3>
+            <p>必要に応じて、本ポリシーの内容を変更する場合があります。変更後のポリシーは、本ページに掲載された時点で効力を持ちます。</p>
+
+            <h3>7. お問い合わせ</h3>
+            <p>本アプリに関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
+            <p><strong>nomuglucose@gmail.com</strong></p>
+        </section>
+
+    </div>
+
 </body>
 </html>
