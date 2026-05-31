@@ -8,67 +8,154 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 600px;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
             margin: 40px auto;
             padding: 0 20px;
-            text-align: center;
         }
-        h1 {
-            color: #333;
-            font-size: 24px;
-        }
-        .intro {
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .link-container {
-            margin: 40px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .btn {
-            display: block;
-            padding: 12px;
-            background-color: #e60023; /* Pinterest風の赤 */
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-        .btn:hover {
-            background-color: #ad0018;
-        }
-        .footer {
-            margin-top: 50px;
-            border-top: 1px solid #eee;
+        .privacy-section {
+            margin-top: 40px;
+            border-top: 2px solid #eee;
             padding-top: 20px;
-            font-size: 14px;
         }
-        .footer a {
-            color: #666;
+        .lang-en {
+            color: #555;
+            font-size: 0.95em;
+            display: block;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        ul {
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
     <h1>Pinterest API Project</h1>
-    <p class="intro">This is a verification page for Pinterest API access.</p>
+    <p>This is a verification page for Pinterest API access.</p>
 
-    <div class="link-container">
-        <a href="https://ameblo.jp/nomuglucose/" class="btn" target="_blank" rel="noopener noreferrer">
-            日本語ブログ (Ameba Blog)
-        </a>
-        <a href="http://nomuglucose.blogspot.com/" class="btn" target="_blank" rel="noopener noreferrer">
-            English Blog (Blogger)
-        </a>
-    </div>
+    <p><a href="#privacy-policy">Privacy Policy / プライバシーポリシー</a></p>
 
-    <div class="footer">
-        <p><a href="policy.html" target="_blank">Privacy Policy (プライバシーポリシー)</a></p>
-    </div>
+    <section id="privacy-policy" class="privacy-section">
+        <h2>
+            プライバシーポリシー 
+            <span class="lang-en">Privacy Policy</span>
+        </h2>
+
+        <p>
+            本プライバシーポリシーは、MySugarControl（以下「本アプリ」）が提供するサービスにおける、ユーザーの個人情報の取り扱いについて説明するものです。
+            <span class="lang-en">This Privacy Policy explains how MySugarControl ("the App") handles users' personal information in the services provided by the App.</span>
+        </p>
+
+        <h3>
+            1. 収集する情報 
+            <span class="lang-en">1. Information We Collect</span>
+        </h3>
+        <p>
+            本アプリは以下の情報を収集する場合があります。
+            <span class="lang-en">The App may collect the following information:</span>
+        </p>
+        <ul>
+            <li>
+                ユーザーが入力または連携した血糖値データなどのヘルスデータ
+                <span class="lang-en">Health data, such as blood glucose data, entered or linked by the user.</span>
+            </li>
+            <li>
+                Pinterest API を利用する際に取得される公開情報（ピン作成・投稿に必要な範囲のみ）
+                <span class="lang-en">Public information obtained when using the Pinterest API (only within the scope necessary for creating and posting pins).</span>
+            </li>
+        </ul>
+        <p>
+            本アプリは、ユーザーの許可なく個人を特定できる情報を収集しません。
+            <span class="lang-en">The App does not collect personally identifiable information without the user's permission.</span>
+        </p>
+
+        <h3>
+            2. 情報の利用目的 
+            <span class="lang-en">2. Purpose of Using Information</span>
+        </h3>
+        <ul>
+            <li>
+                血糖値データの管理および可視化
+                <span class="lang-en">Management and visualization of blood glucose data.</span>
+            </li>
+            <li>
+                Pinterest との連携機能（ピン作成・投稿・レポート表示など）の提供
+                <span class="lang-en">Provision of integration features with Pinterest (creating/posting pins, displaying reports, etc.).</span>
+            </li>
+            <li>
+                アプリの改善およびユーザー体験の向上
+                <span class="lang-en">App improvement and enhancement of user experience.</span>
+            </li>
+        </ul>
+
+        <h3>
+            3. 情報の第三者提供 
+            <span class="lang-en">3. Third-Party Disclosure</span>
+        </h3>
+        <p>
+            本アプリは、以下の場合を除き、ユーザー情報を第三者に提供することはありません。
+            <span class="lang-en">The App will not provide user information to third parties except in the following cases:</span>
+        </p>
+        <ul>
+            <li>
+                ユーザー本人の同意がある場合
+                <span class="lang-en">With the user's consent.</span>
+            </li>
+            <li>
+                法令に基づき開示が必要な場合
+                <span class="lang-en">When disclosure is required by law.</span>
+            </li>
+        </ul>
+
+        <h3>
+            4. 外部サービスの利用 
+            <span class="lang-en">4. Use of External Services</span>
+        </h3>
+        <p>
+            本アプリは以下の外部サービスを利用します。
+            <span class="lang-en">The App uses the following external services:</span>
+        </p>
+        <ul>
+            <li>
+                <strong>Pinterest API</strong>（Pinterest の利用規約およびプライバシーポリシーに従ってデータが処理されます）
+                <span class="lang-en"><strong>Pinterest API</strong> (Data is processed in accordance with Pinterest's Terms of Service and Privacy Policy).</span>
+            </li>
+        </ul>
+
+        <h3>
+            5. データの管理 
+            <span class="lang-en">5. Data Security</span>
+        </h3>
+        <p>
+            ユーザーのデータは適切に管理され、不正アクセス・改ざん・漏洩を防ぐための対策を講じます。
+            <span class="lang-en">User data is managed appropriately, and measures are taken to prevent unauthorized access, alteration, or leakage.</span>
+        </p>
+
+        <h3>
+            6. プライバシーポリシーの変更 
+            <span class="lang-en">6. Changes to this Privacy Policy</span>
+        </h3>
+        <p>
+            必要に応じて、本ポリシーの内容を変更する場合があります。変更後のポリシーは、本ページに掲載された時点で効力を持ちます。
+            <span class="lang-en">This policy may be updated as necessary. The updated policy becomes effective as soon as it is posted on this page.</span>
+        </p>
+
+        <h3>
+            7. お問い合わせ 
+            <span class="lang-en">7. Contact Information</span>
+        </h3>
+        <p>
+            本アプリに関するお問い合わせは、以下のメールアドレスまでご連絡ください。
+            <span class="lang-en">If you have any questions regarding the App, please contact us at the following email address:</span>
+        </p>
+        <p><strong>nomuglucose@gmail.com</strong></p>
+    </section>
 
 </body>
 </html>
