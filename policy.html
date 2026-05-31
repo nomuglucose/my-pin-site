@@ -1,58 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="p:domain_verify" content="f2d83c8458d08761156987da364fc249"/>
     <title>My Pinterest App Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        .intro {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .link-container {
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .btn {
+            display: block;
+            padding: 12px;
+            background-color: #e60023; /* Pinterest風の赤 */
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #ad0018;
+        }
+        .footer {
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
+
     <h1>Pinterest API Project</h1>
-    <p>This is a verification page for Pinterest API access. test</p>
+    <p class="intro">This is a verification page for Pinterest API access.</p>
 
-    <!-- 修正ポイント：/privacy → #privacy-policy -->
-    <p><a href="#privacy-policy">Privacy Policy</a></p>
+    <div class="link-container">
+        <a href="https://ameblo.jp/nomuglucose/" class="btn" target="_blank" rel="noopener noreferrer">
+            日本語ブログ (Ameba Blog)
+        </a>
+        <a href="http://nomuglucose.blogspot.com/" class="btn" target="_blank" rel="noopener noreferrer">
+            English Blog (Blogger)
+        </a>
+    </div>
 
-    <section id="privacy-policy" style="max-width:800px;margin:40px auto;font-family:Arial, sans-serif;line-height:1.7;">
-        <h2>プライバシーポリシー</h2>
+    <div class="footer">
+        <p><a href="policy.html" target="_blank">Privacy Policy (プライバシーポリシー)</a></p>
+    </div>
 
-        <p>本プライバシーポリシーは、MySugarControl（以下「本アプリ」）が提供するサービスにおける、ユーザーの個人情報の取り扱いについて説明するものです。</p>
-
-        <h3>1. 収集する情報</h3>
-        <p>本アプリは以下の情報を収集する場合があります。</p>
-        <ul>
-            <li>ユーザーが入力または連携した血糖値データなどのヘルスデータ</li>
-            <li>Pinterest API を利用する際に取得される公開情報（ピン作成・投稿に必要な範囲のみ）</li>
-        </ul>
-        <p>本アプリは、ユーザーの許可なく個人を特定できる情報を収集しません。</p>
-
-        <h3>2. 情報の利用目的</h3>
-        <ul>
-            <li>血糖値データの管理および可視化</li>
-            <li>Pinterest との連携機能（ピン作成・投稿・レポート表示など）の提供</li>
-            <li>アプリの改善およびユーザー体験の向上</li>
-        </ul>
-
-        <h3>3. 情報の第三者提供</h3>
-        <p>本アプリは、以下の場合を除き、ユーザー情報を第三者に提供することはありません。</p>
-        <ul>
-            <li>ユーザー本人の同意がある場合</li>
-            <li>法令に基づき開示が必要な場合</li>
-        </ul>
-
-        <h3>4. 外部サービスの利用</h3>
-        <p>本アプリは以下の外部サービスを利用します。</p>
-        <ul>
-            <li><strong>Pinterest API</strong>（Pinterest の利用規約およびプライバシーポリシーに従ってデータが処理されます）</li>
-        </ul>
-
-        <h3>5. データの管理</h3>
-        <p>ユーザーのデータは適切に管理され、不正アクセス・改ざん・漏洩を防ぐための対策を講じます。</p>
-
-        <h3>6. プライバシーポリシーの変更</h3>
-        <p>必要に応じて、本ポリシーの内容を変更する場合があります。変更後のポリシーは、本ページに掲載された時点で効力を持ちます。</p>
-
-        <h3>7. お問い合わせ</h3>
-        <p>本アプリに関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
-        <p><strong>nomuglucose@gmail.com</strong></p>
-    </section>
 </body>
 </html>
