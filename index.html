@@ -1,123 +1,154 @@
 <!DOCTYPE html>
-<html lang="ja">
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="p:domain_verify" content="f2d83c8458d08761156987da364fc249"/>
-    <title>My Pinterest App Project</title>
-    <style>
-        /* 全体のリセットと背景 */
-        body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-            line-height: 1.8;
-            color: #333333;
-            background-color: #fafafa; /* ほんのり温かみのある白 */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    <title>MySugar</title>
 
-        /* 上品なカード型のコンテナ */
-        .container {
-            max-width: 540px;
-            width: 90%;
-            background: #ffffff;
-            padding: 50px 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* 非常に軽微で滑らかな影 */
-            border-radius: 8px;
-            text-align: center;
-            border-top: 4px solid #1a2a3a; /* 上部にのみ誠実さを表すネイビー */
-        }
+```
+<style>
+    body {
+        font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        line-height: 1.8;
+        color: #333333;
+        background-color: #fafafa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-        /* タイトル（信頼感のあるネイビー） */
-        h1 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #1a2a3a;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
+    .container {
+        max-width: 540px;
+        width: 90%;
+        background: #ffffff;
+        padding: 50px 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+        text-align: center;
+        border-top: 4px solid #1a2a3a;
+    }
 
-        /* サブテキスト（控えめなグレー） */
-        .intro {
-            font-size: 14px;
-            color: #777777;
-            margin-bottom: 40px;
-        }
+    h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1a2a3a;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+    }
 
-        /* リンクボタンの配置 */
-        .link-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
+    .intro {
+        font-size: 14px;
+        color: #555555;
+        margin-bottom: 24px;
+    }
 
-        /* 上品なボタンデザイン */
-        .btn {
-            display: block;
-            padding: 14px 20px;
-            color: #1a2a3a;
-            background-color: #ffffff;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            border: 1px solid #dcd6cd; /* シャンパンゴールドを意識した上品なベージュグレー */
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            letter-spacing: 0.3px;
-        }
+    .description {
+        font-size: 14px;
+        color: #666666;
+        margin-bottom: 35px;
+    }
 
-        /* ホバー時は静かに背景と境界線を変える */
-        .btn:hover {
-            background-color: #1a2a3a;
-            color: #ffffff;
-            border-color: #1a2a3a;
-        }
+    .link-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
 
-        /* フッター（プライバシーポリシー） */
-        .footer {
-            margin-top: 30px;
-            padding-top: 24px;
-            border-top: 1px solid #eeeeee;
-            font-size: 13px;
-        }
+    .btn {
+        display: block;
+        padding: 14px 20px;
+        color: #1a2a3a;
+        background-color: #ffffff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        border: 1px solid #dcd6cd;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        letter-spacing: 0.3px;
+    }
 
-        .footer a {
-            color: #666666;
-            text-decoration: none;
-            border-bottom: 1px solid #cccccc;
-            transition: color 0.2s;
-        }
+    .btn:hover {
+        background-color: #1a2a3a;
+        color: #ffffff;
+        border-color: #1a2a3a;
+    }
 
-        .footer a:hover {
-            color: #1a2a3a;
-            border-bottom-color: #1a2a3a;
-        }
-    </style>
+    .footer {
+        margin-top: 30px;
+        padding-top: 24px;
+        border-top: 1px solid #eeeeee;
+        font-size: 13px;
+    }
+
+    .footer a {
+        color: #666666;
+        text-decoration: none;
+        border-bottom: 1px solid #cccccc;
+        transition: color 0.2s;
+    }
+
+    .footer a:hover {
+        color: #1a2a3a;
+        border-bottom-color: #1a2a3a;
+    }
+</style>
+```
+
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Pinterest API Project</h1>
-        <p class="intro">This is a verification page for Pinterest API access.</p>
+<div class="container">
 
-        <div class="link-container">
-            <a href="https://ameblo.jp/nomuglucose/" class="btn" target="_blank" rel="noopener noreferrer">
-                日本語ブログ (Ameba Blog)
-            </a>
-            <a href="http://nomuglucose.blogspot.com/" class="btn" target="_blank" rel="noopener noreferrer">
-                English Blog (Blogger)
-            </a>
-        </div>
+```
+<h1>MySugar</h1>
 
-        <div class="footer">
-            <p><a href="policy.html" target="_blank">Privacy Policy (プライバシーポリシー)</a></p>
-        </div>
-    </div>
+<p class="intro">
+    Health-data archiving application for blood glucose trend reporting.
+</p>
+
+<p class="description">
+    MySugar allows users to save blood glucose trend reports as Pins on Pinterest boards they own.
+    The application retrieves CGM (Continuous Glucose Monitoring) trend charts,
+    generates daily and weekly report images, and publishes them using the Pinterest API.
+    Users authenticate through Pinterest OAuth 2.0 and only authorized accounts can create Pins.
+</p>
+
+<div class="link-container">
+
+    <a href="https://ameblo.jp/nomuglucose/"
+       class="btn"
+       target="_blank"
+       rel="noopener noreferrer">
+        Japanese Blog (Ameba Blog)
+    </a>
+
+    <a href="https://nomuglucose.blogspot.com/"
+       class="btn"
+       target="_blank"
+       rel="noopener noreferrer">
+        English Blog (Blogger)
+    </a>
+
+</div>
+
+<div class="footer">
+    <p>
+        <a href="policy.html" target="_blank">
+            Privacy Policy
+        </a>
+    </p>
+</div>
+```
+
+</div>
 
 </body>
 </html>
